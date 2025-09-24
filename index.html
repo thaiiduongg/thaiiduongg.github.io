@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>__THAIDWONG__</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Rowdies|Pattaya" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Quicksand', sans-serif;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Nền video */
+        #bgVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .content {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px;
+            display: inline-block;
+        }
+
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
+
+        .profile h2 {
+            font-family: 'Pattaya', sans-serif;
+            font-size: 26px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: black;
+        }
+
+        .bank-info {
+            margin-top: 20px;
+        }
+
+        .key-display {
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #ff5722, #ff9800, #ffc107);
+            color: black;
+            font-size: 18px;
+            border-radius: 25px;
+            width: 300px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .key-display:hover {
+            background: linear-gradient(45deg, #ffc107, #ff9800, #ff5722);
+        }
+
+        footer {
+            margin-top: 20px;
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video nền -->
+    <video autoplay muted loop id="bgVideo">
+        <source src="https://cdn.pixabay.com/vimeo/402646676/Gradient_Colors_1080p.mp4?width=640&hash=524f3e0f6d16fd48c89e2ed422c04ae1e3b2e741" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ video nền.
+    </video>
+
+    <div class="content">
+        <div class="profile">
+            <img src="https://i.imgur.com/T3Cu4Ii.png" alt="THAIDWONG">
+            <h2>THÁI DƯƠNG 
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/512px-Twitter_Verified_Badge.svg.png" alt="Verified" style="width: 19px; height: 19px; vertical-align: middle;">
+            </h2>
+            <p>Hi, I'm a Developer<br>I like website design<br>__THAIDWONG__</p>
+            <p>Zalo 0943040079</p>
+        </div>
+
+        <hr>
+
+        <div class="social-links">
+            <h3>Mạng Xã Hội</h3>
+            <a href="https://www.facebook.com/share/16cqsWYyjn/?mibextid=wwXIfr"><i class="bi bi-facebook"></i> Facebook</a>
+            <a href="https://zalo.me/0943040079"><i class="bi bi-zalo"></i> Zalo</a>
+            <a href="https://github.com/thaiidwong/Remake-nh-c"><i class="bi bi-github"></i> file remake nhạc</a>
+            <a href="https://github.com/thaiidwong?tab=repositories"><i class="bi bi-github"></i> Github</a>
+        </div>
+
+        <hr>
+
+        <div class="bank-info">
+            <h3>Thông Tin Bank</h3>
+            <p><strong>MoMo:</strong>0943040079<br>THÁI DƯƠNG</p>
+            <p><strong>MB Bank:</strong>0943040079<br>THÁI DƯƠNG</p>
+        </div>
+
+        <hr>
+
+        <div class="key-display" id="keyDisplay" onclick="copyKey()">
+            undefind
+        </div>
+
+        <footer>
+            Created by <a href="https://www.facebook.com/share/15zfCjAtxZ/?mibextid" style="color: lightblue;">THAIDWONG</a><br>
+            All rights reserved © 2025
+        </footer>
+    </div>
+
+    <script>
+        // Lấy giá trị key từ URL và hiển thị
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const key = getQueryParameter('key');
+        if (key) {
+            document.getElementById('keyDisplay').innerText = `${key}`;
+        }
+
+        // Sao chép key vào clipboard
+        function copyKey() {
+            const keyText = document.getElementById('keyDisplay').innerText;
+            navigator.clipboard.writeText(keyText).then(() => {
+                alert("Key copied to clipboard!");
+            }).catch(err => {
+                alert("Failed to copy key: " + err);
+            });
+        }
+    </script>
+</body>
+</html>
