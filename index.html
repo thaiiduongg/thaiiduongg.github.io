@@ -142,14 +142,57 @@
             undefind
         </div>
 
-        <!-- Thêm nhạc ẩn -->
+        <!-- Thêm nhạc (ẩn YouTube) -->
         <div class="music-player" style="display:none;">
-            <iframe 
-                src="https://www.youtube.com/embed/n6Pnzi6r9NU?autoplay=1&loop=1&playlist=n6Pnzi6r9NU&start=30" 
+            <iframe id="musicFrame"
+                src="https://www.youtube.com/embed/n6Pnzi6r9NU?enablejsapi=1&autoplay=1&loop=1&playlist=n6Pnzi6r9NU&start=30" 
                 frameborder="0" 
                 allow="autoplay; encrypted-media">
             </iframe>
         </div>
+        
+        <!-- Điều khiển nhạc -->
+        <div class="music-control" style="margin-top:20px;">
+            <p id="musicStatus" style="color: lightgreen; font-weight: bold;">Web đang phát nhạc 🎶</p>
+            <button onclick="toggleMusic()" style="padding:10px 20px; border:none; border-radius:8px; cursor:pointer; background:orange; color:white; font-weight:bold;">
+                ⏸ Pause
+            </button>
+        </div>
+        
+        <script>
+            let player;
+            let isPlaying = true;
+        
+            // API YouTube
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('musicFrame', {
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
+            }
+        
+            function onPlayerReady(event) {
+                event.target.playVideo();
+            }
+        
+            function toggleMusic() {
+                if (isPlaying) {
+                    player.pauseVideo();
+                    document.getElementById("musicStatus").innerText = "Nhạc đã tạm dừng ⏹";
+                    document.querySelector(".music-control button").innerText = "▶ Play";
+                    isPlaying = false;
+                } else {
+                    player.playVideo();
+                    document.getElementById("musicStatus").innerText = "Web đang phát nhạc 🎶";
+                    document.querySelector(".music-control button").innerText = "⏸ Pause";
+                    isPlaying = true;
+                }
+            }
+        </script>
+        
+        <!-- Thêm script API YouTube -->
+        <script src="https://www.youtube.com/iframe_api"></script>
 
 
         <footer>
