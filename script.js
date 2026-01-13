@@ -7,15 +7,15 @@ function updateCounter() {
 
     if (diff < 0) diff = 0;
 
-    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    const ms = diff % 1000;
 
-    document.getElementById("count-followers").textContent = String(hours).padStart(2, "0");
-    document.getElementById("count-following").textContent = String(minutes).padStart(2, "0");
-    document.getElementById("count-posts").textContent = String(seconds).padStart(2, "0");
-    document.getElementById("count-works").textContent = String(ms).padStart(3, "0");
+    document.getElementById("count-followers").textContent = days;
+    document.getElementById("count-following").textContent = String(hours).padStart(2, "0");
+    document.getElementById("count-posts").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("count-works").textContent = String(seconds).padStart(2, "0");
 
     requestAnimationFrame(updateCounter);
 }
