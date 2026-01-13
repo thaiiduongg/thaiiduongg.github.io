@@ -1,4 +1,4 @@
-// ================== TIMER TỪ 01/01/2026 ==================
+// ================== TIMER TỪ 01/01/2026 =================
 const startTime = new Date("2026-01-01T00:00:00").getTime();
 
 function updateCounter() {
@@ -21,3 +21,4 @@ function updateCounter() {
 }
 
 requestAnimationFrame(updateCounter);
+
