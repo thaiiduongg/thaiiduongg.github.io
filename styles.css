@@ -1,86 +1,52 @@
-/* ===== RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ===== SECTION CHÍNH ===== */
+.info {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
 }
 
-/* ===== BODY ===== */
-body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
+/* ===== ICON LOCATION ===== */
+.location {
+    font-size: 60px;
+    margin: 20px 0;
 }
 
-/* ===== WRAPPER ===== */
-.wrapper {
-    width: 100%;
-    min-height: 100vh;
-    padding: 50px 20px;
-    padding-top: 100px;
+/* ===== TEXT ===== */
+.info p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* ===== ICON SOCIAL ===== */
+.social {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    z-index: 1;
+    gap: 60px; /* khoảng cách đều */
+    margin-top: 40px;
 }
 
-/* ===== BACKGROUND SLIDES ===== */
-.bg-slide {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-
-    animation: zoom 10s ease-in-out infinite;
-
-    z-index: -3;
-}
-
-/* ===== ZOOM NHẸ ===== */
-@keyframes zoom {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.1);
-    }
-}
-
-/* ===== OVERLAY + BLUR ===== */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
-
-    z-index: -2;
-}
-
-/* ===== CARD NỔI (nếu có nội dung) ===== */
-.card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 30px;
-    border-radius: 20px;
+/* ===== ICON STYLE ===== */
+.social i {
+    font-size: 50px;
     color: white;
-    text-align: center;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-/* ===== TEXT ĐẸP HƠN ===== */
-h1, h2, p {
-    color: white;
+/* ===== HOVER HIỆU ỨNG ===== */
+.social i:hover {
+    transform: scale(1.2);
+    color: #00ffff;
+}
+
+/* ===== FIX BUTTON NHỎ XẤU ===== */
+button {
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+    background: #00ffff;
+    color: black;
+    cursor: pointer;
+    margin: 5px;
 }
